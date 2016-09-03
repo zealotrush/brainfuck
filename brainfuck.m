@@ -21,9 +21,9 @@ while code_index <= length(code)
         buf(buf_index) = buf(buf_index) - 1;
     case '<'
         buf_index = buf_index - 1;
-        if buf_index < 0
-            warning('Out of buffer lower boundary.')
-            buf_index = 0;
+        if buf_index <= 0
+            buf_index = 1;
+            buf = [0 buf];
         end
     case '>'
         buf_index = buf_index + 1;
